@@ -5,7 +5,7 @@ function CommentsList({ comments }) {
   return (
     <ul>
       {comments.map((comment) => (
-        <li>
+        <li key={comment.id}>
           <h5 className="mb-0">{comment.author}</h5>
           <small>{new Date(comment.created).toString()}</small>
           <pre dangerouslySetInnerHTML={{
@@ -25,6 +25,7 @@ CommentsList.propTypes = {
       created: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       net_votes: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
     })
   ),
 };
